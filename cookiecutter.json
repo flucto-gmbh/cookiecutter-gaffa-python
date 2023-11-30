@@ -1,0 +1,10 @@
+{
+  "project_name": "best-practices-python",
+  "package_name": "{{ cookiecutter.project_name.replace('-', '_') }}",
+  "friendly_name": "{{ cookiecutter.project_name.replace('-', ' ').title() }}",
+  "author": "Flucto GmbH",
+  "email": "administration@flucto.tech",
+  "github_user": "flucto-gmbh",
+  "version": "0.0.0",
+  "copyright_year": "{% now 'utc', '%Y' %}"
+}
