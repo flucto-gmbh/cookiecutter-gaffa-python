@@ -1,10 +1,8 @@
 # cookiecutter-pragmatic-python
 
-[Cookiecutter] template for a Python package heavily inspired by the 
-[Hypermodern Python] article series and [cookiecutter-poetry] theme.
+[Cookiecutter] template for a simplistic Python package. 
 
 [cookiecutter]: https://github.com/audreyr/cookiecutter
-[hypermodern python]: https://medium.com/@cjolowicz/hypermodern-python-d44485d9d769
 [cookiecutter-poetry]: https://github.com/fpgmaas/cookiecutter-poetry
 
 ## Usage
