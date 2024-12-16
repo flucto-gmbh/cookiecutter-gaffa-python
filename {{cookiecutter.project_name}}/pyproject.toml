@@ -1,33 +1,36 @@
-[tool.poetry]
+[project]
 {% if cookiecutter.package_name != cookiecutter.project_name.replace('-', '_') -%}
 
 {% endif -%}
 
 name = "{{cookiecutter.project_name}}"
-version = "{{cookiecutter.version}}"
+{%- if cookiecutter.vcs %}
+dynamic = ["version"]
+{%- else %}
+version = "0.0.1"
+{%- endif %}
 description = "{{cookiecutter.friendly_name}}"
-authors = ["{{cookiecutter.author}} <{{cookiecutter.email}}>"]
-license = "MIT"
+authors = [{ name = "{{cookiecutter.author}}", email =  "{{cookiecutter.email}}" }]
+license = {file = "LICENSE"}
 readme = "README.md"
-homepage = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}"
-repository = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}"
-documentation = "https://{{cookiecutter.project_name}}.readthedocs.io"
 packages = [{ include = "{{cookiecutter.package_name}}" }]
-[tool.poetry.urls]
+requires-python = ">=3.10"
+
+[project.urls]
 Changelog = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}/releases"
+Documentation = "https://{{cookiecutter.project_name}}.readthedocs.io"
+Homepage = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}"
+Repository = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.project_name}}"
 
-[tool.poetry.dependencies]
-python = "^3.9"
 
-[tool.poetry.group.dev.dependencies]
-pre-commit = ">=2.16.0"
-pre-commit-hooks = ">=4.1.0"
-pytest = ">=6.2.5"
-pytest-mock = "^3.11.1"
-ruff = "^0.0.292"
-pyupgrade = ">=2.29.1"
-deptry = "^0.12.0"
-mypy = "^1.8.0"
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.11.2",
+    "ruff>=0.6.8",
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+]
+
 
 [tool.mypy]
 strict = true
@@ -64,11 +67,19 @@ ignore = [
     "E501", # LineTooLong
     "E731", # DoNotAssignLambda
     "A001",
+    "PLR2004",  # Magic value used in comparison
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "D"]
 
+{%- if cookiecutter.vcs %}
+[tool.hatch]
+version.source = "vcs"
+version.path = "src/{{cookiecutter.package_name}}/__init__.py"
+{%- endif %}
+
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
