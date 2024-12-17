@@ -1,8 +1,13 @@
 .PHONY: install
-install: ## Install the poetry environment and install the pre-commit hooks
-	@echo "Creating virtual environment using pyenv and poetry"
+install: ## Install the virtual environment and install the pre-commit hooks
+	@echo "Creating virtual environment using uv"
 	@uv sync
 	@uv run pre-commit install
+
+.PHONY: test
+test: ## Install the poetry environment and install the pre-commit hooks
+	@echo "Running tests with pytest"
+	@uv run pytest
 
 .PHONY: build
 build: clean-build ## Build wheel file using poetry
@@ -15,7 +20,7 @@ clean-build: ## clean build artifacts
 
 .PHONY: publish
 publish: ## publish a release to pypi.
-	@echo "Publishing: Dry run."
+	@echo "Publishing..."
 	@uv publish
 
 .PHONY: build-and-publish
