@@ -1,9 +1,16 @@
 # cookiecutter-pragmatic-python
 
-[Cookiecutter] template for a simplistic Python package. 
+[Cookiecutter] template for a simplistic Python package.
 
 [cookiecutter]: https://github.com/audreyr/cookiecutter
-[cookiecutter-poetry]: https://github.com/fpgmaas/cookiecutter-poetry
+
+## Requirements
+
+This template uses [uv] for dependency management, virtual envs and python versions.
+Install uv with  
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+Alternatively, check your package manager or the guide for [installation](https://docs.astral.sh/uv/getting-started/installation/).
 
 ## Usage
 
@@ -15,21 +22,17 @@ cookiecutter gh:flucto-gmbh/cookiecutter-gaffa-python
 
 <!-- features-begin -->
 
-- Packaging and dependency management with [Poetry]
+- Packaging and dependency management with [uv]
 - Linting with [pre-commit] and [ruff]
-- Code formatting with [Black] and [ruff]
 - Testing with [pytest]
-- Automated Python syntax upgrades with [pyupgrade]
 
 The template supports Python 3.9, 3.10, 3.11 and 3.12
 
-[black]: https://github.com/psf/black
 [ruff]: http://docs.astral.sh/ruff
-[poetry]: https://python-poetry.org/
+[uv]: https://docs.astral.sh/uv/
 [pre-commit]: https://pre-commit.com/
 [pypi]: https://pypi.org/
 [pytest]: https://docs.pytest.org/en/latest/
-[pyupgrade]: https://github.com/asottile/pyupgrade
 [read the docs]: https://readthedocs.org/
 
 <!-- features-end -->
