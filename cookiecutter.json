@@ -3,9 +3,8 @@
   "package_name": "{{ cookiecutter.project_name.replace('-', '_') }}",
   "friendly_name": "{{ cookiecutter.project_name.replace('-', ' ').title() }}",
   "author": "Flucto GmbH",
-  "email": "administration@flucto.tech",
-  "github_user": "flucto-gmbh",
-  "version": "0.0.0",
+  "email": "devel@flucto.tech",
+  "github_user": "git-flucto",
   "copyright_year": "{% now 'utc', '%Y' %}",
   "vcs": true
 }
