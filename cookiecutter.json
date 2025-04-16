@@ -4,7 +4,7 @@
   "friendly_name": "{{ cookiecutter.project_name.replace('-', ' ').title() }}",
   "author": "Flucto GmbH",
   "email": "devel@flucto.tech",
-  "github_user": "git-flucto",
+  "github_user": "flucto-gmbh",
   "copyright_year": "{% now 'utc', '%Y' %}",
   "vcs": true
 }
